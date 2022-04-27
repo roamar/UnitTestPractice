@@ -130,6 +130,13 @@ TEST(PracticeTest, Case_Sensitive_palindrome)
 	ASSERT_EQ( testObject.isPalindrome("rAcECaR"), true);
 }
 
+TEST(PracticeTest, Exclamation_palindrome)
+{
+	Practice testObject;
+
+	ASSERT_EQ( testObject.isPalindrome("!rAcECaR!"), true);
+}
+
 
 ////////////////////
 /*SORT DESCENDING*/
@@ -219,6 +226,36 @@ TEST(PracticeTest, secondthird_secondfirst_sortDescending)
 	ASSERT_EQ(b,0);
 	ASSERT_EQ(c,0);
 }
+
+TEST(PracticeTest, second_lessthan_third_first_lessthan_second_sortDescending)
+{
+	Practice testObject;
+	int a = 12;
+	int b = 11;
+	int c = 13;
+
+	testObject.sortDescending(a,b,c);
+
+	ASSERT_EQ(a,13);
+	ASSERT_EQ(b,12);
+	ASSERT_EQ(c,11);
+}
+
+TEST(PracticeTest, thirdlessthanboth_sortDescending)
+{
+	Practice testObject;
+	int a = 3;
+	int b = 3;
+	int c = 1;
+
+	testObject.sortDescending(a,b,c);
+
+	ASSERT_EQ(a,3);
+	ASSERT_EQ(b,3);
+	ASSERT_EQ(c,1);
+}
+
+
 
 ////////////////
 /*ALL-NIGHTER*/
