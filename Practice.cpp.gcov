@@ -1,0 +1,176 @@
+        -:    0:Source:Practice.cpp
+        -:    0:Graph:Practice.gcno
+        -:    0:Data:Practice.gcda
+        -:    0:Runs:3
+        -:    0:Programs:3
+        -:    1:#include "Practice.h"
+        -:    2:#include <string>
+        -:    3:
+        -:    4:using std::string;
+        -:    5:
+        -:    6:// Receive three integers and rearrange their values so that they are in
+        -:    7:// descending order from greatest (first) to least (third)
+function _ZN8Practice14sortDescendingERiS0_S0_ called 16 returned 100% blocks executed 95%
+       16:    8:void Practice::sortDescending(int & first, int & second, int & third)
+        -:    9:{
+        -:   10:  int biggest, middle, smallest;
+       16:   11:  if( second > third && second > first )
+branch  0 taken 6% (fallthrough)
+branch  1 taken 94%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0%
+        -:   12:  {
+        1:   13:    biggest = second;
+        -:   14:  }
+       15:   15:  else if( third > second && third > first )
+branch  0 taken 80% (fallthrough)
+branch  1 taken 20%
+branch  2 taken 75% (fallthrough)
+branch  3 taken 25%
+        -:   16:  {
+        9:   17:    biggest = third;
+        -:   18:  }
+        -:   19:  else
+        -:   20:  {
+        6:   21:    biggest = first;
+        -:   22:  }
+       16:   23:  if( second < third && second < first )
+branch  0 taken 75% (fallthrough)
+branch  1 taken 25%
+branch  2 taken 50% (fallthrough)
+branch  3 taken 50%
+        -:   24:  {
+        6:   25:    smallest = second;
+        -:   26:  }
+       10:   27:  else if( third < second && third < first )
+branch  0 taken 10% (fallthrough)
+branch  1 taken 90%
+branch  2 taken 0% (fallthrough)
+branch  3 taken 100%
+        -:   28:  {
+    #####:   29:    smallest = third;
+        -:   30:  }
+        -:   31:  else
+        -:   32:  {
+       10:   33:    smallest = first;
+        -:   34:  }
+       16:   35:  if( first != biggest && first != smallest ){
+branch  0 taken 63% (fallthrough)
+branch  1 taken 38%
+branch  2 taken 30% (fallthrough)
+branch  3 taken 70%
+        3:   36:    middle = first;
+        -:   37:  }
+       13:   38:  else if( second != biggest && second != smallest ){
+branch  0 taken 69% (fallthrough)
+branch  1 taken 31%
+branch  2 taken 33% (fallthrough)
+branch  3 taken 67%
+        3:   39:    middle = second;
+        -:   40:  }
+        -:   41:  else{
+       10:   42:    middle = third;
+        -:   43:  }
+       16:   44:}
+        -:   45:
+        -:   46:// Receive a string and return whether or not it is strictly a palindrome,
+        -:   47:// where it is spelled the same backwards and forwards when considering every
+        -:   48:// character in the string, but disregarding case ('x' is the same as 'X')
+function _ZN8Practice12isPalindromeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 18 returned 100% blocks executed 100%
+       18:   49:bool Practice::isPalindrome(string input)
+        -:   50:{
+      135:   51:  for(unsigned int i=0; i < input.size(); i++)
+call    0 returned 100%
+branch  1 taken 87% (fallthrough)
+branch  2 taken 13%
+        -:   52:  {
+      117:   53:    if( input[i] < 'A' || input[i] > 'Z' )
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0%
+call    3 returned 100%
+branch  4 taken 90% (fallthrough)
+branch  5 taken 10%
+branch  6 taken 90% (fallthrough)
+branch  7 taken 10%
+        -:   54:    {
+        -:   55:      //change lower case to upper case
+      105:   56:      input[i] = input[i] - ('a' - 'A');
+call    0 returned 100%
+call    1 returned 100%
+        -:   57:    }
+        -:   58:  }
+        -:   59:
+       18:   60:  bool match = false;
+        -:   61:
+       69:   62:  for(unsigned int i=0; i < input.size()/2; i++)
+call    0 returned 100%
+branch  1 taken 74% (fallthrough)
+branch  2 taken 26%
+        -:   63:  {
+       51:   64:    if( input[i] == input[input.size()-1-i] )
+call    0 returned 100%
+call    1 returned 100%
+call    2 returned 100%
+branch  3 taken 88% (fallthrough)
+branch  4 taken 12%
+       45:   65:      match = true;
+        -:   66:    else
+        6:   67:      match = false;
+        -:   68:  }
+       18:   69:  return match;
+        -:   70:}
+        -:   71:
+        -:   72:// This function receives a string and counts how many times the same character
+        -:   73:// is repeated at the beginning of the string, before any other characters. The
+        -:   74:// function is case sensative so 'Z' is different than 'z'.
+function _ZN8Practice22count_starting_repeatsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 24 returned 100% blocks executed 100%
+       24:   75:int Practice::count_starting_repeats(string word)
+        -:   76:{
+       24:   77:    int repetition = 0;
+       24:   78:    int index = 0;
+        -:   79:    char letter;
+        -:   80:
+       24:   81:    if( word.length() > 0 )
+call    0 returned 100%
+branch  1 taken 88% (fallthrough)
+branch  2 taken 13%
+       21:   82:      letter = word[0];
+call    0 returned 100%
+        -:   83:
+      171:   84:    for(unsigned int i=1; i < word.length(); i++){
+call    0 returned 100%
+branch  1 taken 86% (fallthrough)
+branch  2 taken 14%
+      147:   85:      if( word[i] == letter ){
+call    0 returned 100%
+branch  1 taken 22% (fallthrough)
+branch  2 taken 78%
+       33:   86:        repetition++;
+        -:   87:      }
+        -:   88:    }
+        -:   89:
+       24:   90:    return repetition;
+        -:   91:}
+        -:   92:
+        -:   93:// Receives an array that represents the hours someone sleeps each night of the week
+        -:   94:// (as an array of seven integers) and returns a pointer to locate the first instance
+        -:   95:// of an "all nighter" in the array (a day with 0 hours sleep) and returns the pointer.
+        -:   96:// However, if there are no such days found, the function should return nullptr.
+function _ZN8Practice10allnighterEPi called 15 returned 100% blocks executed 100%
+       15:   97:int* Practice::allnighter(int sleep[7])
+        -:   98:{
+       72:   99:  for(int i = 0; i < 7; i++)
+branch  0 taken 96% (fallthrough)
+branch  1 taken 4%
+        -:  100:  {
+       69:  101:    if(sleep[i] <= 0)
+branch  0 taken 17% (fallthrough)
+branch  1 taken 83%
+        -:  102:    {
+       12:  103:      return &sleep[i];
+        -:  104:    }
+        -:  105:  }
+        -:  106:
+        3:  107:  return nullptr;
+        -:  108:}

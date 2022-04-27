@@ -85,17 +85,24 @@ int Practice::count_starting_repeats(string word)
       if( word[i] == letter ){
         repetition++;
       }
-    }    
+    }
 
     return repetition;
 }
 
 // Receives an array that represents the hours someone sleeps each night of the week
 // (as an array of seven integers) and returns a pointer to locate the first instance
-// of an "all nighter" in the array (a day with 0 hours sleep) and returns the pointer. 
+// of an "all nighter" in the array (a day with 0 hours sleep) and returns the pointer.
 // However, if there are no such days found, the function should return nullptr.
 int* Practice::allnighter(int sleep[7])
 {
+  for(int i = 0; i < 7; i++)
+  {
+    if(sleep[i] <= 0)
+    {
+      return &sleep[i];
+    }
+  }
 
-
+  return nullptr;
 }
